@@ -9,11 +9,16 @@ typedef struct
 
 int main(int argc, char const *argv[])
 {
-    int t=1;
+    int t;
 char **nombres;
 char *Buff;
 Buff= (char *) malloc(100*sizeof(char));
-for ( int i = 0; i < 5; i++)
+printf("Ingrese la cantidad de nombres que ingresara: ");
+scanf("%i", &t);
+fgetc(stdin);
+nombres = calloc(t,sizeof(char *));
+
+for ( int i = 0; i < t; i++)
 {
     printf("Ingrese sus nombres: ");
     gets(Buff);
@@ -21,13 +26,13 @@ for ( int i = 0; i < 5; i++)
     strcpy(nombres[i], Buff);    
 }
 printf("Los nombres cargados son: \n");
-for ( int i = 0; i < 5; i++)
+for ( int i = 0; i < t; i++)
 {
     printf("%s\n", nombres[i]);
 }
 
 free(Buff);
-for (int i = 0; i < 5; i++)
+for (int i = 0; i < t; i++)
 {
     free(nombres[i]);
 }
